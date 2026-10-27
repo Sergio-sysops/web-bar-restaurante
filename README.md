@@ -2,7 +2,7 @@
 
 Web de demostración para un **bar-restaurante "todo en uno"** (desayunos, menú del día, tapas y copas). El negocio es **ficticio**.
 
-🔗 **Verla funcionando:** _(enlace de GitHub Pages, pendiente)_
+🔗 **Verla funcionando:** https://sergio-sysops.github.io/web-bar-restaurante/
 
 ## Qué incluye
 
