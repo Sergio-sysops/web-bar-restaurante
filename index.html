@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link id="fuentes" rel="stylesheet" href="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap">
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="tema.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <a href="#inicio" class="marca" data-n="nombre"></a>
+  <nav id="menu" class="menu"></nav>
+</header>
+
+<section id="inicio" class="portada">
+  <div class="portada-fondo" aria-hidden="true"></div>
+  <div class="portada-texto">
+    <p class="tipo"><span data-n="tipo"></span> · <span data-n="ciudad"></span></p>
+    <h1 data-n="nombre"></h1>
+    <p class="lema" data-n="lema"></p>
+    <p id="estado" class="estado"></p>
+    <p id="franja" class="franja" hidden></p>
+    <div class="botones">
+      <a href="#carta" class="boton">Ver la carta</a>
+      <a href="#reservas" class="boton boton-claro">Reservar mesa</a>
+    </div>
+  </div>
+  <aside id="pizarra" class="pizarra" hidden></aside>
+</section>
+
+<main>
+  <section id="carta" class="seccion">
+    <h2>Carta</h2>
+    <div id="cats" class="cats"></div>
+    <div id="platos" class="platos"></div>
+    <details class="leyenda-caja">
+      <summary>Información sobre alérgenos</summary>
+      <div id="leyenda" class="leyenda"></div>
+      <p>Si tienes alguna alergia o intolerancia, avísanos antes de pedir. Tenemos a tu disposición la información completa de cada plato.</p>
+    </details>
+    <p class="centro"><button id="ver-qr" class="boton boton-claro">📱 QR de la carta para las mesas</button></p>
+  </section>
+
+  <section id="menu-dia" class="seccion seccion-alt">
+    <h2>Menú del día</h2>
+    <div id="menu-dia-contenido" class="menu-dia"></div>
+  </section>
+
+  <section id="eventos" class="seccion">
+    <h2>Eventos</h2>
+    <div id="lista-eventos" class="eventos"></div>
+  </section>
+
+  <section id="reservas" class="seccion seccion-alt">
+    <h2>Reservar</h2>
+    <p class="intro">Rellena los datos y se abrirá WhatsApp con tu reserva escrita. Te confirmamos enseguida.</p>
+    <form id="form-reserva" class="formulario">
+      <label>Día <input type="date" name="fecha" id="r-fecha" required></label>
+      <label>Hora <input type="time" name="hora" required value="14:00"></label>
+      <label>Personas <input type="number" name="personas" min="1" max="60" value="2" required></label>
+      <label id="r-tipo-label">Tipo <select name="tipo" id="r-tipo"></select></label>
+      <label class="ancho">Nombre <input type="text" name="nombre" maxlength="60" required></label>
+      <label class="ancho">Algo más (alergias, trona, celebración…) <textarea name="notas" rows="2" maxlength="300"></textarea></label>
+      <input type="text" name="web" class="trampa" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="boton boton-wa ancho" type="submit">Reservar por WhatsApp</button>
+    </form>
+  </section>
+
+  <section id="donde" class="seccion">
+    <h2>Dónde estamos</h2>
+    <div class="donde">
+      <div>
+        <p class="direccion"><span data-n="direccion"></span><br><span data-n="ciudad"></span></p>
+        <p><a id="mapa" class="boton" target="_blank" rel="noopener">📍 Cómo llegar</a>
+           <a id="tel" class="boton boton-claro">📞 Llamar</a></p>
+      </div>
+      <table class="horario"><caption>Horario</caption><tbody id="horario"></tbody></table>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <p class="redes" id="redes"></p>
+  <p><span data-n="nombre"></span> · <span data-n="direccion"></span>, <span data-n="ciudad"></span></p>
+  <p class="credito" id="credito"></p>
+</footer>
+
+<dialog id="qr-dialogo" class="qr-dialogo">
+  <h3>Carta digital</h3>
+  <p>Imprímelo y ponlo en las mesas: al escanearlo se abre la carta.</p>
+  <div id="qr-caja" class="qr-caja"></div>
+  <p><button class="boton" onclick="window.print()">🖨️ Imprimir</button>
+     <button id="cerrar-qr" class="boton boton-claro">Cerrar</button></p>
+</dialog>
+
+<a class="wa-flotante" id="wa-flotante" aria-label="WhatsApp" target="_blank" rel="noopener">💬</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="datos.js"></script>
+<script>
+  document.getElementById("fuentes").href = NEGOCIO.fuentes;
+  document.getElementById("wa-flotante").href = "https://wa.me/" + NEGOCIO.whatsapp;
+</script>
+<script src="app.js"></script>
+</body>
+</html>

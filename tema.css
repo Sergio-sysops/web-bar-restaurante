@@ -1,0 +1,30 @@
+/* Tema "La Plazuela": cálido, terracota y verde oliva */
+:root {
+  --fondo: #fbf6ef;
+  --fondo-alt: #f3e9dc;
+  --tarjeta: #ffffff;
+  --texto: #2f241d;
+  --acento: #c2562f;
+  --sobre-acento: #fff;
+  --borde: #eadccb;
+  --borde-fuerte: #d4bfa6;
+  --cabecera: rgba(251, 246, 239, .92);
+  --letra-titulo: "Fraunces";
+  --letra-texto: "Nunito Sans";
+  --peso-titulo: 800;
+  --radio: 16px;
+  --portada:
+    radial-gradient(circle at 85% 30%, rgba(194, 86, 47, .22), transparent 45%),
+    radial-gradient(circle at 70% 85%, rgba(122, 140, 70, .25), transparent 40%),
+    linear-gradient(160deg, #fbf3e6, #f1e2cd);
+}
+
+/* La portada cambia de ambiente según la franja horaria */
+body[data-franja="desayuno"] { --portada: radial-gradient(circle at 80% 20%, rgba(255, 196, 92, .45), transparent 50%), linear-gradient(160deg, #fff8e8, #f6e6c8); }
+body[data-franja="comida"]   { --portada: radial-gradient(circle at 80% 30%, rgba(194, 86, 47, .3), transparent 50%), linear-gradient(160deg, #fbf3e6, #f1e2cd); }
+body[data-franja="tarde"]    { --portada: radial-gradient(circle at 80% 30%, rgba(230, 150, 40, .4), transparent 50%), linear-gradient(160deg, #fbeedd, #eed2ae); }
+body[data-franja="noche"]    {
+  --portada: radial-gradient(circle at 80% 25%, rgba(194, 86, 47, .45), transparent 45%), radial-gradient(circle at 20% 90%, rgba(90, 70, 160, .4), transparent 45%), linear-gradient(160deg, #241a24, #120d14);
+  --titulo-portada: #fff;
+}
+body[data-franja="noche"] .portada-texto { color: #f4ece4; }
